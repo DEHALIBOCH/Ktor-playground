@@ -10,7 +10,7 @@ import kz.dehaliboch.cache.InMemoryCache.usersList
 import kz.dehaliboch.cache.TokenCache
 import kz.dehaliboch.feature.login.models.LoginRequest
 import kz.dehaliboch.feature.login.models.LoginResponse
-import java.util.UUID
+import java.util.*
 
 fun Application.configureLoginRouting() {
 
@@ -18,9 +18,9 @@ fun Application.configureLoginRouting() {
         post("/login") {
             val loginRequest = call.receive<LoginRequest>()
 
-            if (usersList.map { it.login }.contains(loginRequest.login)) {
+            if (usersList.map { it.email }.contains(loginRequest.email)) {
                 val token = UUID.randomUUID().toString()
-                tokenList.add(TokenCache(loginRequest.login, token))
+                tokenList.add(TokenCache(loginRequest.email, token))
                 call.respond(LoginResponse(token))
                 return@post
             }

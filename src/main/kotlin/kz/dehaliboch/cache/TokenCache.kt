@@ -1,6 +1,6 @@
 package kz.dehaliboch.cache
 
 data class TokenCache(
-    val login: String,
+    val email: String,
     val token: String,
 )
