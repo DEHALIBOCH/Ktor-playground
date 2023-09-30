@@ -1,6 +1,6 @@
-package kz.dehaliboch.common
+package kz.dehaliboch.feature.test.common
 
-import kz.dehaliboch.models.test.TestModel
+import kz.dehaliboch.feature.test.models.test.TestModel
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

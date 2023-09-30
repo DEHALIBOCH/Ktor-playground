@@ -1,7 +1,7 @@
-package kz.dehaliboch.models.test
+package kz.dehaliboch.feature.test.models.test
 
 import kotlinx.serialization.Serializable
-import kz.dehaliboch.common.getCurrentDateTime
+import kz.dehaliboch.feature.test.common.getCurrentDateTime
 import java.util.Date
 
 @Serializable
