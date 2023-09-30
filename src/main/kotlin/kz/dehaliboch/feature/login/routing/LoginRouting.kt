@@ -17,6 +17,7 @@ fun Application.configureLoginRouting() {
     routing {
         post("/login") {
             val loginRequest = call.receive<LoginRequest>()
+
             if (usersList.map { it.login }.contains(loginRequest.login)) {
                 val token = UUID.randomUUID().toString()
                 tokenList.add(TokenCache(loginRequest.login, token))
