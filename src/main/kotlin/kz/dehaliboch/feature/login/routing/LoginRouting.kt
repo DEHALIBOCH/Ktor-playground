@@ -17,15 +17,21 @@ fun Application.configureLoginRouting() {
     routing {
         post("/login") {
             val loginRequest = call.receive<LoginRequest>()
+            val userNullable = usersList.firstOrNull { it.email == loginRequest.email }
 
-            if (usersList.map { it.email }.contains(loginRequest.email)) {
+            if (userNullable == null) {
+                call.respond(HttpStatusCode.BadRequest)
+                return@post
+            }
+
+            if (userNullable.password == loginRequest.password) {
                 val token = UUID.randomUUID().toString()
                 tokenList.add(TokenCache(loginRequest.email, token))
                 call.respond(LoginResponse(token))
                 return@post
             }
 
-            call.respond(HttpStatusCode.BadRequest)
+            call.respond(HttpStatusCode.BadRequest, "Invalid password")
         }
     }
 }
