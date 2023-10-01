@@ -1,9 +1,10 @@
 package kz.dehaliboch.cache
 
-import kz.dehaliboch.feature.registration.models.RegistrationRequest
+import kz.dehaliboch.shared_models.User
 
 object InMemoryCache {
 
-    val usersList = mutableListOf<RegistrationRequest>()
+    val usersList = mutableListOf<User>()
+
     val tokenList = mutableListOf<TokenCache>()
 }
