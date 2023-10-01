@@ -7,6 +7,7 @@ import io.ktor.server.routing.*
 import kz.dehaliboch.cache.InMemoryCache.tokenList
 import kz.dehaliboch.cache.InMemoryCache.usersList
 import kz.dehaliboch.cache.TokenCache
+import kz.dehaliboch.feature.registration.mappers.toUser
 import kz.dehaliboch.feature.registration.models.RegistrationRequest
 import kz.dehaliboch.feature.registration.models.RegistrationResponse
 import kz.dehaliboch.feature.registration.validators.validate
@@ -28,7 +29,7 @@ fun Application.configureRegistrationRouting() {
                 call.respondText("Email already taken")
                 return@post
             }
-            usersList.add(registrationRequest)
+            usersList.add(registrationRequest.toUser())
 
             val token = UUID.randomUUID().toString()
             tokenList.add(TokenCache(registrationRequest.email, token))
