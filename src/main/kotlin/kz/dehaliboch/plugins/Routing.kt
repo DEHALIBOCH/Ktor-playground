@@ -3,7 +3,7 @@ package kz.dehaliboch.plugins
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kz.dehaliboch.feature.test.common.generateSampleArray
+import kz.dehaliboch.common.generateSampleArray
 import kz.dehaliboch.feature.test.models.test.TestModel
 
 fun Application.configureRouting() {

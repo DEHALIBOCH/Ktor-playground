@@ -1,4 +1,4 @@
-package kz.dehaliboch.feature.test.common
+package kz.dehaliboch.common
 
 import kz.dehaliboch.feature.test.models.test.TestModel
 import java.time.LocalDateTime
