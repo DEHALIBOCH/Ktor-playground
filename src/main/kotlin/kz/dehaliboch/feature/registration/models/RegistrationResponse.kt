@@ -5,4 +5,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class RegistrationResponse(
     val token: String,
+    val message: String = "Successful registration",
 )
